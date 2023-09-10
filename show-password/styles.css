@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.password-input {
+  padding: 5px 20px;
+}
+
+.toggle-password {
+  margin-left: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fa-eye {
+  color: blue;
+}
