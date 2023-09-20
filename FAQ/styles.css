@@ -1,0 +1,30 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+details {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 340px;
+  margin: 1em 0;
+}
+
+summary {
+  padding: 0.5em 1em;
+  user-select: none;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+summary:hover {
+  background-color: #ddd;
+}
+
+.isi {
+  margin-left: 10px;
+}
