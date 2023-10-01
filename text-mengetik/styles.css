@@ -1,0 +1,71 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("path-to-your-image.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-image: url(../clock/pic3.jpg);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin: 0 6px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 0.2em;
+  transition: background-color 0.2s;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#home {
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  width: 360px;
+  transform: translateY(50px);
+}
+
+#home p {
+  line-height: 25px;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+#home h1 {
+  color: yellow;
+  font-size: 30px;
+}
+
+.cursor {
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
