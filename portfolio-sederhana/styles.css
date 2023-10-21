@@ -1,0 +1,125 @@
+body {
+  font-family: Poppins, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.talk,
+.hamburger {
+  padding: 5px 15px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid #afb3bb;
+  border-radius: 5px;
+  color: #222;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.talk:hover,
+.hamburger:hover {
+  background-color: #ddd;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.first-namelogo {
+  color: #afb3bb;
+}
+
+.title {
+  font-size: 48px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.title span {
+  color: #afb3bb;
+}
+
+.description {
+  max-width: 1000px;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.image-placeholder {
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+  background-image: url(mypic.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #888;
+  margin-bottom: 30px;
+  border-radius: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+}
+
+.footer-text {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Responsif untuk tablet */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .image-placeholder {
+    height: 300px;
+  }
+
+  .footer-text {
+    font-size: 24px;
+  }
+}
+
+/* Responsif untuk mobile */
+@media screen and (max-width: 370px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .image-placeholder {
+    height: 200px;
+  }
+
+  .footer-text {
+    font-size: 20px;
+  }
+}
