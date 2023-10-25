@@ -1,0 +1,66 @@
+body {
+  font-family: cursive, sans-serif;
+  background-color: yellow;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 4px solid green;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+#start-button {
+  padding: 6px 25px;
+  border-radius: 5px;
+  background-color: skyblue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#start-button:hover {
+  filter: brightness(0.9);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.board div {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.winning-cell {
+  background-color: #32cd32; /* Warna latar belakang untuk menandakan kemenangan */
+  transition: background-color 0.5s ease-in-out;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: green;
+}

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(bg.jpg);
+  background-size: cover;
+  backdrop-filter: blur(3px);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.logo {
+  background-image: url(mypic.png);
+  background-size: cover;
+  background-position: -50px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.portfolio-handle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.link-list {
+  list-style-type: none;
+  padding: 0;
+  width: 500px;
+}
+
+.link-list li {
+  margin-bottom: 10px;
+}
+
+.link-list a {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.link-list a:hover {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 500px) {
+  .link-list {
+    width: 350px;
+  }
+}
