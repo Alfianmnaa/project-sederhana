@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  font-family: Arial, sans-serif;
+  font-family: Poppins, Arial, sans-serif;
   color: white;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,10 @@ body {
 .logo {
   background-image: url(mypic.png);
   background-size: cover;
-  background-position: -50px;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 3px solid #ccc;
   margin-bottom: 10px;
 }
 
@@ -37,7 +36,7 @@ body {
 .link-list {
   list-style-type: none;
   padding: 0;
-  width: 500px;
+  width: 600px;
 }
 
 .link-list li {
