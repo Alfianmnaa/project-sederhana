@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  display: flex;
+  font-display: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(mosque.jpg);
+  background-size: cover;
+  color: white;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.container {
+  margin-right: 60px;
+}
+.clock {
+  display: flex;
+  position: relative;
+}
+
+.clock div {
+  margin: 5px;
+}
+
+.clock span {
+  width: 100px;
+  height: 80px;
+  background: slateblue;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.clock .text {
+  height: 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: darkblue;
+  opacity: 0.8;
+}
+
+.clock #ampm {
+  bottom: 3px;
+  position: absolute;
+  width: 60x;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  background: dimgray;
+}
