@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <!-- Link Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
+
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #1e1e1e;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #fff;
+        padding: 30px;
+      }
+
+      #todoList {
+        width: 100%;
+        max-width: 500px;
+        background-color: #262626;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        border: 1px solid gray;
+      }
+
+      h2 {
+        background-color: #ff8c00;
+        color: #1e1e1e;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #fff;
+      }
+
+      #tasksContainer {
+        padding: 20px;
+      }
+
+      .task input[type="checkbox"] {
+        transform: scale(1.5);
+      }
+
+      .task {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+      }
+
+      .task:hover {
+        background-color: #555;
+      }
+
+      .task label {
+        flex-grow: 1;
+        margin-left: 15px;
+        font-size: 1.2rem;
+        color: #fff;
+      }
+
+      .task i {
+        cursor: pointer;
+        color: #dc3545;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .task.completed label {
+        text-decoration: line-through;
+        color: #6c757d;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid #ff8c00;
+        background-color: #333;
+        border-radius: 4px;
+        margin-right: 10px;
+        font-size: 1rem;
+        color: #fff;
+      }
+
+      .clear-all {
+        background-color: #ff8c00;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        margin-top: 15px;
+        margin-left: 20px;
+      }
+
+      .delete-all {
+        background-color: red;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+        .task {
+          align-items: center;
+        }
+
+        .task label {
+          margin-left: 10px;
+          font-size: 1rem;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="todoList">
+      <h2>To-Do List</h2>
+      <div>
+        <input type="text" id="newTask" placeholder="Tambah tugas baru" />
+        <button onclick="addTask()" class="clear-all">Tambah</button>
+        <button onclick="clearAll()" class="delete-all">Hapus Semua</button>
+      </div>
+      <div id="tasksContainer"></div>
+    </div>
+
+    <script>
+      // Fungsi untuk mengambil tugas dari local storage
+      function getTasks() {
+        return JSON.parse(localStorage.getItem("tasks")) || [];
+      }
+
+      // Fungsi untuk menyimpan tugas ke local storage
+      function saveTasks(tasks) {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      // Fungsi untuk menampilkan tugas pada halaman
+      function displayTasks() {
+        const tasksContainer = document.getElementById("tasksContainer");
+        tasksContainer.innerHTML = "";
+
+        const tasks = getTasks();
+
+        tasks.forEach((task, index) => {
+          const taskElement = document.createElement("div");
+          taskElement.classList.add("task");
+          if (task.completed) {
+            taskElement.classList.add("completed");
+          }
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = task.completed;
+          checkbox.addEventListener("change", () => toggleTask(index));
+
+          const label = document.createElement("label");
+          label.textContent = task.text;
+
+          const deleteIcon = document.createElement("i");
+          deleteIcon.classList.add("fas", "fa-trash-alt");
+          deleteIcon.addEventListener("click", () => deleteTask(index));
+
+          taskElement.appendChild(checkbox);
+          taskElement.appendChild(label);
+          taskElement.appendChild(deleteIcon);
+
+          tasksContainer.appendChild(taskElement);
+        });
+      }
+
+      // Fungsi untuk menambah tugas baru
+      function addTask() {
+        const newTaskInput = document.getElementById("newTask");
+        const newTaskText = newTaskInput.value.trim();
+
+        if (newTaskText !== "") {
+          const tasks = getTasks();
+          tasks.push({ text: newTaskText, completed: false });
+          saveTasks(tasks);
+          newTaskInput.value = "";
+          displayTasks();
+        }
+      }
+
+      // Fungsi untuk menghapus tugas
+      function deleteTask(index) {
+        const tasks = getTasks();
+        tasks.splice(index, 1);
+        saveTasks(tasks);
+        displayTasks();
+      }
+
+      // Fungsi untuk menandai tugas selesai atau belum selesai
+      function toggleTask(index) {
+        const tasks = getTasks();
+        tasks[index].completed = !tasks[index].completed;
+        saveTasks(tasks);
+        displayTasks();
+      }
+
+      // Fungsi untuk menghapus semua tugas
+      function clearAll() {
+        localStorage.removeItem("tasks");
+        displayTasks();
+      }
+
+      // Menampilkan tugas saat halaman dimuat
+      displayTasks();
+    </script>
+  </body>
+</html>
