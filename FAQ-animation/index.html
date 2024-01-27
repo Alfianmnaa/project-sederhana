@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f5f5f5;
+        height: 100vh;
+      }
+
+      .container {
+        display: grid;
+        place-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .faq-container {
+        max-width: 600px;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .faq-item {
+        margin-bottom: 10px;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .faq-item:hover {
+        background-color: #f9f9f9;
+      }
+
+      .faq-item .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .faq-item .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      .faq-item.open .answer {
+        max-height: 200px; /* Sesuaikan tinggi maksimal sesuai kebutuhan */
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      .faq-item .answer p {
+        margin: 10px 0;
+        color: #555;
+      }
+
+      .faq-item .answer a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .rotate {
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>FAQ</h1>
+      <div class="faq-container">
+        <div class="faq-item" onclick="toggleAnswer(this)">
+          <div class="question">
+            Pertanyaan 1
+            <i class="fas fa-chevron-down rotate"></i>
+          </div>
+          <div class="answer">
+            <p>Jawaban pertanyaan 1 lorem ipsum dolor sit amet.</p>
+            <a href="#">Baca lebih lanjut</a>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer(this)">
+          <div class="question">
+            Pertanyaan 2
+            <i class="fas fa-chevron-down rotate"></i>
+          </div>
+          <div class="answer">
+            <p>Jawaban pertanyaan 2 lorem ipsum dolor sit amet.</p>
+            <a href="#">Baca lebih lanjut</a>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer(this)">
+          <div class="question">
+            Pertanyaan 3
+            <i class="fas fa-chevron-down rotate"></i>
+          </div>
+          <div class="answer">
+            <p>Jawaban pertanyaan 3 lorem ipsum dolor sit amet.</p>
+            <a href="#">Baca lebih lanjut</a>
+          </div>
+        </div>
+
+        <!-- Tambahkan FAQ item lainnya sesuai kebutuhan -->
+      </div>
+    </div>
+
+    <script>
+      function toggleAnswer(element) {
+        const faqItem = element;
+        const answer = faqItem.querySelector(".answer");
+        const icon = faqItem.querySelector(".rotate");
+
+        faqItem.classList.toggle("open");
+        if (faqItem.classList.contains("open")) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          icon.style.transform = "rotate(180deg)";
+        } else {
+          answer.style.maxHeight = "0";
+          icon.style.transform = "rotate(0deg)";
+        }
+      }
+    </script>
+  </body>
+</html>
